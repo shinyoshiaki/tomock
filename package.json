@@ -11,7 +11,7 @@
     "typescript": "^3.1.6"
   },
   "scripts": {
-    "tomock-generate": "node ./src/mockGenerator.js",
+    "gen": "node ./src/mockGenerator.js @types/** ./out",
     "build": "tsc",
     "test-pre": "tsc ./src/mockGenerator.ts; node ./src/mockGenerator.js ./test/api/**"
   }

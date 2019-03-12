@@ -1,30 +1,44 @@
-export const makeHogeMock = (
-    payload: { [key in keyof Hoge]?: Hoge[key] } = {}
-  ): Hoge => {
+export const makePlatformAppMock = (
+    payload: { [key in keyof PlatformApp]?: PlatformApp[key] } = {}
+  ): PlatformApp => {
   return Object.assign({}, {
-      hoge: 'this is mock string',
-      flg: (Math.random() < 0.5),
-      num: 45
-    }, payload)
-}
-
-export const makeUserMock = (
-    payload: { [key in keyof User]?: User[key] } = {}
-  ): User => {
-  return Object.assign({}, {
-      name: '山田 太郎',
-      isAuthenticated: (Math.random() < 0.5),
-      age: 45,
-      tags: new Array(3).toString().split(',').map(() => 'this is mock string'),
-      childs: new Array(3).toString().split(',').map(() => Object.assign({}, makeChildMock()))
-    }, payload)
-}
-
-export const makeChildMock = (
-    payload: { [key in keyof Child]?: Child[key] } = {}
-  ): Child => {
-  return Object.assign({}, {
+      platform: 'this is mock string',
+      id: 'this is mock string',
+      country: 'this is mock string',
+      language: 'this is mock string',
+      icon_url: 'this is mock string',
       name: 'this is mock string',
-      age: 1
+      developer_name: 'this is mock string',
+      categories: new Array(3).toString().split(',').map(() => Object.assign({}, makePlatformAppCategoryMock())),
+      other_apps: new Array(3).toString().split(',').map(() => Object.assign({}, makePlatformAppOtherAppMock())),
+      store_apps: new Array(3).toString().split(',').map(() => Object.assign({}, makePlatformAppStoreAppMock()))
+    }, payload)
+}
+
+export const makePlatformAppCategoryMock = (
+    payload: { [key in keyof PlatformAppCategory]?: PlatformAppCategory[key] } = {}
+  ): PlatformAppCategory => {
+  return Object.assign({}, {
+      id: 'this is mock string',
+      name: 'this is mock string'
+    }, payload)
+}
+
+export const makePlatformAppOtherAppMock = (
+    payload: { [key in keyof PlatformAppOtherApp]?: PlatformAppOtherApp[key] } = {}
+  ): PlatformAppOtherApp => {
+  return Object.assign({}, {
+      id: 'this is mock string',
+      platform: 'this is mock string',
+      store: 'this is mock string'
+    }, payload)
+}
+
+export const makePlatformAppStoreAppMock = (
+    payload: { [key in keyof PlatformAppStoreApp]?: PlatformAppStoreApp[key] } = {}
+  ): PlatformAppStoreApp => {
+  return Object.assign({}, {
+      id: 'this is mock string',
+      store: 'this is mock string'
     }, payload)
 }

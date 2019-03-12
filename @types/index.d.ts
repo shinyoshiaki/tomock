@@ -1,23 +1,28 @@
-interface Hoge {
-  hoge: string
-  /** default: random */
-  flg: boolean
-  /** default: 45 */
-  num: number
+export interface PlatformApp {
+  platform: string;
+  id: string;
+  country?: string;
+  language?: string;
+  icon_url: string;
+  name: string;
+  developer_name: string;
+  categories?: Array<PlatformAppCategory>;
+  other_apps?: Array<PlatformAppOtherApp>;
+  store_apps?: Array<PlatformAppStoreApp>;
 }
 
-interface User {
-  /** default: 山田 太郎*/
-  name: string
-  /** default: random */
-  isAuthenticated: boolean
-  /** default: 45 */
-  age: number
-  tags: string[]
-  childs: Child[]
+export interface PlatformAppCategory {
+  id: string;
+  name: string;
 }
 
-interface Child {
-  name: string
-  age: number
+export interface PlatformAppOtherApp {
+  id: string;
+  platform: string;
+  store: string;
+}
+
+export interface PlatformAppStoreApp {
+  id: string;
+  store: string;
 }
